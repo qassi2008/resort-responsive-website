@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=YourFontName:wght@YourFontWeight&display=swap');
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fafafa;
+    height: 100vh;
+}
+/* Header and Navigation Styles */
+header {
+    background: #224E0B;
+    position: fixed;
+    width: 100%;
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Logo on the left, navigation on the right */
+    align-items: center;
+    padding: 0 20px;
+    z-index: 2;
+}
+
+.logo {
+    font-size: 30px;
+    font-family: 'Nosifer', cursive;
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, auto); /* Creates equal columns for each link */
+    justify-content: end;
+    font-weight: 550;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+.nav-links a:hover{
+    color: yellow;
+}
+.book-now{
+    background-color: orange; /* Dark Green for buttons */
+    color: #fff; /* White text on buttons */
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.book-now span{
+    color: azure;
+    font-weight: 600;
+}
+/* Hero Section Styles */
+.hero {
+    background-image: url('resort.png'); /* Update with your image path */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the background image */
+    min-height: 100vh; /* Full viewport height, adjust as needed */
+    display: flex;
+    align-items: center; /* To vertically center the content */
+    justify-content: flex-start; /* To horizontally center the content */
+}
+
+.hero-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    font-size: 1.4em;
+    width: 65%;
+    max-width: 1200px; /* Adjust based on your design requirements */
+    color: black;
+    padding: 0 20px;
+}
+.hero-text {
+    flex: 1;
+    padding: 20px; /* Ensures some space between the text and the image */
+}
+.hero-text h1{
+    font-family: 'Nosifer', cursive;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+.hero-text h1 span{
+    color: green;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: orange; /* Dark Green for buttons */
+    color: #fff;
+}
+.btn:hover{
+    color: #000;
+    background: #cccc;
+    transition: all 0.7s ease;
+
+}
+.nav-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-toggle .hamburger {
+    width: 30px;
+    height: 3px;
+    background: #ffffff;
+    display: block;
+    position: relative;
+}
+
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+    content: "";
+    background: #ffffff;
+    width: 30px;
+    height: 3px;
+    display: block;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle .hamburger::before {
+    top: -8px;
+}
+.nav-toggle .hamburger::after {
+    top: 8px;
+}
+@media (max-width: 768px) {
+    .nav-container {
+        grid-template-columns: 1fr auto; /* Adjust columns to move logo to the right */
+        position: relative;
+        padding: 10px;
+    }
+    .nav-toggle {
+        display: block;
+        z-index: 4;
+    }
+    .logo {
+        justify-self: end; /* Align the logo to the end (right) of its grid area */
+        font-size: 20px;
+    }
+    /* Ensure the nav-toggle button appears on the left */
+    .nav-toggle {
+        /*position: absolute;*/
+        top: 0;
+        right: 0;
+        z-index: 3;
+        order: -1; /* Moves the toggle button to the first position */
+    }
+    .nav-links {
+        /*grid-template-columns: repeat(3, auto); /* Adjust the number of columns for smaller screens */
+        position: absolute; /* Position the links absolutely within the nav-container */
+        top: 60%;
+        left: 0; /* Align to the left side */
+        width: 50%; /* Take up half the screen width */
+       /* height: 100vh; /* Make it full screen height */
+        background-color: #224E0B; /* Give it a background color */
+        display: none; /* Hide by default */
+        flex-direction: column; /* Stack links vertically */
+        padding: 10px; /* Add some padding */
+        box-sizing: border-box; /* Include padding in width calculation */
+        z-index: 2;
+        transition: transform 0.5s ease; /* Smooth transition for the sliding effect */
+    }
+    .nav-links a {
+        color: white; /* Adjust link color for visibility */
+        padding: 6px; /* Add padding to each link */
+        text-decoration: none; /* Remove underline from links */
+        display: block;
+        font-size: 16px; /* Increase font size for better readability on small screens */
+        transition: color 0.3s ease; /* Smooth color transition for hover */
+        border-bottom: 1px solid white;
+    }
+    .nav-links.active {
+        display: flex; /* Show links when active */
+        transform: translateY(0%);
+    }
+    .nav-links a:hover {
+        color: yellow; /* Change color on hover */
+    }
+    .hero {
+        background: url("img.png") no-repeat center; /* Adjust background size to fit the height */
+        background-size: cover;
+        transition: tranform 0.6s ease-in-out;
+    }
+    .hero-content {
+        width: 90%;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        margin: 10px;
+        flex-direction: column; /* Stack text and any other content vertically */
+        align-items: center; /* Center-align the content */
+        border-radius: 20px;
+
+    }
+    .hero-text h1 {
+        font-size: 20px; /* Smaller font size for the heading */
+        margin: 10px;
+    }
+
+    .hero-text p {
+        font-size: 16px; /* Adjust paragraph font size for readability */
+        margin: 10px;
+    }
+
+     .book-now {
+        padding: 8px 14px; /* Adjust button size */
+        font-size: 16px; /* Adjust button font size */
+    }
+}
